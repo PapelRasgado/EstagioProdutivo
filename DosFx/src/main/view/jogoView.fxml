@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.image.*?>
 <?import java.lang.*?>
@@ -7,7 +8,12 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="main.view.JogoViewController">
    <children>
-      <ImageView fx:id="topo" fitHeight="200.0" fitWidth="150.0" layoutX="104.0" layoutY="98.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="topo" fitHeight="200.0" fitWidth="150.0" layoutX="113.0" layoutY="98.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
       <ListView fx:id="listView" layoutX="15.0" layoutY="334.0" orientation="HORIZONTAL" prefHeight="211.0" prefWidth="571.0" />
+      <ImageView fx:id="pilhaImg" fitHeight="200.0" fitWidth="150.0" layoutX="300.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="cor" layoutX="300.0" layoutY="53.0">
+         <font>
+            <Font size="27.0" />
+         </font></Label>
    </children>
 </AnchorPane>

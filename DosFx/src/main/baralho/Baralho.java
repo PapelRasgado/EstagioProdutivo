@@ -35,8 +35,8 @@ public class Baralho {
 	}
 	
 	public void reembaralhar(ArrayList<Carta> cartas) {
-		Collections.shuffle(cartas);
-		this.cartas = cartas;
+		this.cartas.addAll(cartas);
+		Collections.shuffle(this.cartas);
 
 	}
 	
