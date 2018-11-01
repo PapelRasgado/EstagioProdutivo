@@ -1,6 +1,6 @@
 package main.baralho;
 
-public class Carta {
+public class Carta implements Comparable<Carta> {
 
 	private Cor cor;
 	
@@ -30,6 +30,15 @@ public class Carta {
 	@Override
 	public String toString() {
 		return valor.valor + " " + cor.cor;
+	}
+
+	@Override
+	public int compareTo(Carta carta) {
+		if (this.cor == carta.cor) {
+			return valor.ordem - carta.valor.ordem;
+		} else {
+			return cor.ordem - carta.cor.ordem;
+		}
 	}
 
 }

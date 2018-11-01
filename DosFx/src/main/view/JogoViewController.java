@@ -1,21 +1,12 @@
 package main.view;
 
-import java.time.format.DateTimeFormatter;
-
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.geometry.Pos;
-import javafx.scene.Scene;
-import javafx.scene.control.Label;
 import javafx.scene.control.ListCell;
 import javafx.scene.control.ListView;
-import javafx.scene.control.TableView;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.VBox;
-import javafx.stage.Stage;
 import main.MainApp;
+import main.baralho.Carta;
 
 public class JogoViewController {
 
@@ -23,7 +14,7 @@ public class JogoViewController {
 	private ImageView topo;
 	
 	@FXML
-	private ListView<String> listView;
+	private ListView<Carta> listView;
 	
 	private MainApp mainApp;
 
@@ -33,19 +24,21 @@ public class JogoViewController {
 	}
 	
 	public void atualizar() {
-		topo.setImage(new Image("file:resources/images/teste.jpg"));
-		listView.setItems(mainApp.getCartaDataString());
-		listView.setCellFactory(param -> new ListCell<String>() {
+		topo.setImage(new Image("file:resources/images/fundo.png"));
+		listView.setItems(mainApp.getCartaData());
+		listView.setCellFactory(param -> new ListCell<Carta>() {
 			private ImageView imageView = new ImageView();
 
 			@Override
-			public void updateItem(String name, boolean empty) {
-				super.updateItem(name, empty);
+			public void updateItem(Carta carta, boolean empty) {
+				super.updateItem(carta, empty);
 				if (empty) {
 					setText(null);
 					setGraphic(null);
 				} else {
-					imageView.setImage(new Image("file:resources/images/teste.jpg"));
+					Image img = new Image("file:resources/images/"+ carta.getCor().ordem + "/"+ carta.getValor().ordem + ".png");
+					
+					imageView.setImage(img);
 					imageView.fitWidthProperty().set(124);
 
 					imageView.fitHeightProperty().set(190);

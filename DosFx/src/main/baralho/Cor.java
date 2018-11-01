@@ -1,11 +1,14 @@
 package main.baralho;
 
 public enum Cor {
-	azul("azul"), vermelho("vermelho"), verde("verde"), amarelo("amarelo"), preto("preto");
+	azul("Azul", 1), vermelho("Vermelho", 2), verde("Verde", 3), amarelo("Amarelo", 4), preto("Preto", 5);
 	
-	String cor;
+	public String cor;
 	
-	private Cor(String cor) {
+	public int ordem;
+	
+	private Cor(String cor, int ordem) {
 		this.cor = cor;
+		this.ordem  = ordem;
 	}
 }

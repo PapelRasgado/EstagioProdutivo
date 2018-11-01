@@ -1,6 +1,7 @@
 package main;
 
 import java.io.IOException;
+import java.util.Collections;
 
 import javafx.application.Application;
 import javafx.collections.FXCollections;
@@ -9,15 +10,16 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import main.baralho.AcabouBaralhoException;
+import main.baralho.Baralho;
 import main.baralho.Carta;
-import main.baralho.Cor;
-import main.baralho.Valor;
 import main.view.JogoViewController;
 
 public class MainApp extends Application {
 
 	private Stage primaryStage;
 	private AnchorPane rootLayout;
+	private Baralho b;
 
 	private ObservableList<Carta> cartaData = FXCollections.observableArrayList();
 
@@ -34,23 +36,17 @@ public class MainApp extends Application {
 	public ObservableList<Carta> getCartaData() {
 		return cartaData;
 	}
-	
-	public ObservableList<String> getCartaDataString() {
-		ObservableList<String> novo = FXCollections.observableArrayList();
-		for (Carta carta : cartaData) {
-			novo.add(carta.getCor().name() + " " + carta.getValor().valor);
-		}
-		return novo;
-	}
-	
 
 	public MainApp() {
-		cartaData.add(new Carta(Cor.amarelo, Valor.C0));
-		cartaData.add(new Carta(Cor.amarelo, Valor.C0));
-		cartaData.add(new Carta(Cor.amarelo, Valor.C0));
-		cartaData.add(new Carta(Cor.amarelo, Valor.C0));
-		cartaData.add(new Carta(Cor.amarelo, Valor.C0));
-		cartaData.add(new Carta(Cor.amarelo, Valor.C0));
+		b = new Baralho();
+		try {
+			cartaData.addAll(b.get(20));
+			Collections.sort(cartaData);
+			System.out.println(cartaData.toString());
+		} catch (AcabouBaralhoException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	public void initRootLayout() {
