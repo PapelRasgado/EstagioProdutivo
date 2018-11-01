@@ -23,15 +23,14 @@ public class jogoViewController {
 	private ImageView topo;
 	
 	@FXML
-	private TableView<String> listView;
+	private ListView<String> listView;
 	
 	private MainApp mainApp;
 
 	@FXML
 	private void initialize() {
 		topo.setImage(new Image("file:resources/images/teste.jpg"));
-		listView.set
-
+		listView.setItems(mainApp.getCartaDataString());
 		listView.setCellFactory(param -> new ListCell<String>() {
 			private ImageView imageView = new ImageView();
 
@@ -42,15 +41,7 @@ public class jogoViewController {
 					setText(null);
 					setGraphic(null);
 				} else {
-					if (name.equals("RUBY"))
-						imageView.setImage(new Image("file:resources/images/teste.jpg"));
-					else if (name.equals("APPLE"))
-						imageView.setImage(new Image("file:resources/images/teste.jpg"));
-					else if (name.equals("VISTA"))
-						imageView.setImage(new Image("file:resources/images/teste.jpg"));
-					else if (name.equals("TWITTER"))
-						imageView.setImage(new Image("file:resources/images/teste.jpg"));
-					setText(name);
+					imageView.setImage(new Image("file:resources/images/teste.jpg"));
 					setGraphic(imageView);
 				}
 			}

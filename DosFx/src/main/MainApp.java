@@ -10,6 +10,8 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import main.baralho.Carta;
+import main.baralho.Cor;
+import main.baralho.Valor;
 import main.view.jogoViewController;
 
 public class MainApp extends Application {
@@ -33,9 +35,20 @@ public class MainApp extends Application {
 		return cartaData;
 	}
 	
+	public ObservableList<String> getCartaDataString() {
+		ObservableList<String> novo = FXCollections.observableArrayList();
+		for (Carta carta : cartaData) {
+			novo.add(carta.getCor().name() + " " + carta.getValor().valor);
+		}
+		return novo;
+	}
+	
 
 	public MainApp() {
-
+		cartaData.add(new Carta(Cor.amarelo, Valor.C0));
+		cartaData.add(new Carta(Cor.amarelo, Valor.C0));
+		cartaData.add(new Carta(Cor.amarelo, Valor.C0));
+		cartaData.add(new Carta(Cor.amarelo, Valor.C0));
 	}
 
 	public void initRootLayout() {
