@@ -17,7 +17,7 @@ import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 import main.MainApp;
 
-public class jogoViewController {
+public class JogoViewController {
 
 	@FXML
 	private ImageView topo;
@@ -29,6 +29,10 @@ public class jogoViewController {
 
 	@FXML
 	private void initialize() {
+		
+	}
+	
+	public void atualizar() {
 		topo.setImage(new Image("file:resources/images/teste.jpg"));
 		listView.setItems(mainApp.getCartaDataString());
 		listView.setCellFactory(param -> new ListCell<String>() {
@@ -42,10 +46,14 @@ public class jogoViewController {
 					setGraphic(null);
 				} else {
 					imageView.setImage(new Image("file:resources/images/teste.jpg"));
+					imageView.fitWidthProperty().set(124);
+
+					imageView.fitHeightProperty().set(190);
 					setGraphic(imageView);
 				}
 			}
 		});
+
 	}
 
 

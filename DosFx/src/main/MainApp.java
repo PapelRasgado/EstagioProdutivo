@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 import main.baralho.Carta;
 import main.baralho.Cor;
 import main.baralho.Valor;
-import main.view.jogoViewController;
+import main.view.JogoViewController;
 
 public class MainApp extends Application {
 
@@ -24,7 +24,7 @@ public class MainApp extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		this.primaryStage = primaryStage;
-		this.primaryStage.setTitle("WebZapZap");
+		this.primaryStage.setTitle("dos");
 		this.primaryStage.setResizable(false);
 
 		initRootLayout();
@@ -49,6 +49,8 @@ public class MainApp extends Application {
 		cartaData.add(new Carta(Cor.amarelo, Valor.C0));
 		cartaData.add(new Carta(Cor.amarelo, Valor.C0));
 		cartaData.add(new Carta(Cor.amarelo, Valor.C0));
+		cartaData.add(new Carta(Cor.amarelo, Valor.C0));
+		cartaData.add(new Carta(Cor.amarelo, Valor.C0));
 	}
 
 	public void initRootLayout() {
@@ -58,8 +60,9 @@ public class MainApp extends Application {
 			loader.setLocation(MainApp.class.getResource("view/jogoView.fxml"));
 			rootLayout = (AnchorPane) loader.load();
 
-			jogoViewController controller = loader.getController();
+			JogoViewController controller = loader.getController();
 			controller.setMainApp(this);
+			controller.atualizar();
 
 			Scene scene = new Scene(rootLayout);
 			primaryStage.setScene(scene);
